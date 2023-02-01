@@ -8,7 +8,7 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"libs/**/*.ts\"",
-    "start": "nest start",
+    "start": "npx @nestjs/cli start",
     "start:dev": "cross-env NODE_ENV=development nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -71,7 +71,7 @@
     "typescript": "^4.7.4"
   },
   "jest": {
-   "moduleFileExtensions": [
+    "moduleFileExtensions": [
       "js",
       "json",
       "ts"
@@ -99,6 +99,6 @@
       ".entity.ts",
       ".constants.ts",
       ".dto.ts"
-    ] 
+    ]
   }
 }
