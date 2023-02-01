@@ -35,7 +35,7 @@ USER node
 FROM node:lts-alpine AS production
 
 COPY --from=build /usr/src/app/node_modules ./node_modules
-COPY --from=build /usr/src/app/dist/apps/gateway ./dist
+COPY --from=build /usr/src/app/dist ./dist
 
 CMD [ "node", "dist/main.js" ]
 
