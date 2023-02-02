@@ -28,7 +28,7 @@ export class ProductStock {
 @Entity()
 export class Product extends CoreEntity {
   @Field()
-  @Column({ unique: true })
+  @Column()
   name: string;
 
   @Field(() => Float)
