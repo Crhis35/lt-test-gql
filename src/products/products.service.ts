@@ -50,6 +50,7 @@ export class ProductsService {
       const [items, totalResults] = await this.products.findAndCount({
         take: 25,
         skip: (page - 1) * 25,
+        relations: ['company'],
       });
       return {
         ok: true,

@@ -17,7 +17,6 @@ import { ProductsModule } from './products/products.module';
 import { Company } from './companies/entities/company.entity';
 import { Product } from './products/entities/product.entity';
 
-console.log(join(process.cwd(), '.env.development'));
 @Module({
   imports: [
     CommonModule,
@@ -25,7 +24,7 @@ console.log(join(process.cwd(), '.env.development'));
       isGlobal: true,
       envFilePath:
         process.env.NODE_ENV === 'development'
-          ? join(process.cwd(), '.env.development')
+          ? join(process.cwd(), '.env.development.local')
           : '.env.test',
       ignoreEnvFile: process.env.NODE_ENV === 'production',
       validationSchema: Joi.object({
@@ -59,6 +58,8 @@ console.log(join(process.cwd(), '.env.development'));
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
       path: '/graphql',
+      
+
       context: ({ req }) => {
         const TOKEN_KEY = 'authorization';
         return {
