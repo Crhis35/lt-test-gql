@@ -35,7 +35,7 @@ import { Product } from './products/entities/product.entity';
     }),
     AuthModule,
     TypeOrmModule.forRoot({
-      type: 'postgres',
+      type: process.env.NODE_ENV === 'test' ? 'sqlite' : 'postgres',
       host: process.env.DB_HOST,
       port: +process.env.DB_PORT,
       username: process.env.DB_USERNAME,
@@ -58,7 +58,6 @@ import { Product } from './products/entities/product.entity';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
       path: '/graphql',
-      
 
       context: ({ req }) => {
         const TOKEN_KEY = 'authorization';
